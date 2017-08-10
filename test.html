@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./js/jquery.fullpage.css">
+    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.fullpage.js"></script>
+    <title>移动端-统计报告</title>
+    <style>
+        .component{
+            width: 50%;
+            height:50px;
+            background: #fff;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+    /*
+    1、使用fullpage.js加载并初始化完成fullpage的屏幕滚屏效果；
+    2、测试完成onLeave和afterLoad事件的触发效果；
+    3、随着页面滚动离开和新页面加载完成的触发事件，完成开场动画的载入载出的动画效果
+    */
+        $(document).ready(function(){
+            $('#h5').fullpage({
+                sectionsColor:['#f7d8a2','#F0B270', '#e38f71'],
+                //离开一个页面，进入下一个页面时，触发这个回调事件
+                onLeave: function(index, nextIndex, direction){
+                    // debugger
+                    $('#h5').find('.page').eq(index-1).trigger('onLeave')
+
+                },
+                //滚动结束后，页面加载完成触发的回调事件
+                afterLoad:function(anchorLink, index){
+                    // debugger
+                    $('#h5').find('.page').eq(index-1).trigger('onLoad')
+                }
+            })
+            $('.page').on('onLeave',function(){
+                console.log($(this).attr('id'),'===>>','onLeave');
+                $(this).find('.component').trigger('onLeave');
+            })
+            $('.page').on('onLoad',function(){
+                console.log($(this).attr('id'),'===>>','onLoad');
+                $(this).find('.component').trigger('onLoad');
+            })
+            $('.component').on('onLeave',function(){
+                $(this).fadeOut();
+                return false;
+            })
+            $('.component').on('onLoad',function(){
+                $(this).fadeIn();
+                return false; //避免在page的调用触发中，陷入无限死循环
+            })
+        })
+       //等同于$(function(){})
+       
+    </script>
+</head>
+<body>
+    <!--div#h5>div#page-$.page{}*3
+    div.component-->
+    <!--记得一定要加section这个class-->
+    <div id="h5">
+        <div id="page-1" class="page section">
+            <div class="component logo">logo</div>
+            <div class="component slogan">slogan</div>
+        </div>
+        <div id="page-2" class="page section">
+            <div class="component desc">desc</div>
+        </div>
+        <div id="page-3" class="page section">
+            <div class="component bar">bar</div>
+        </div>
+    </div>
+</body>
+</html>
