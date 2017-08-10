@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/H5ComponentBase.css">
     <script type="text/javascript" src="./js/H5ComponentBase.js"></script>
     <style>
@@ -30,5 +31,24 @@
     <div class="iphone">
 
     </div>
+    <script>
+        $(function(){
+            var name="myName"
+            var cfg={
+                type:'base',
+                text:'',
+                width:514,
+                height:306,
+                bg:'./img/p1_people.png',
+                // css:{
+                //     // left:50,
+                //     top:50,
+                // },
+                center:true,
+            }
+            var H5 = new H5Component(name,cfg)
+            $('.iphone').append(H5);
+        })
+    </script>
 </body>
 </html>
