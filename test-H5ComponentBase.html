@@ -25,6 +25,16 @@
             left: 50%;
             margin: -284px 0 0 -160px;
         }
+
+        .h5_component_base{
+            transition: all 1s;
+        }
+        /*.h5_component_Leave{
+            opacity: 0;
+        }
+        .h5_component_Load{
+            opacity: 1;
+        }*/
     </style>
 </head>
 <body>
@@ -40,14 +50,27 @@
                 width:514,
                 height:306,
                 bg:'./img/p1_people.png',
-                // css:{
-                //     // left:50,
-                //     top:50,
-                // },
+                css:{
+                    bottom:0,
+                    opacity:0,
+                },
+                animateIn:{
+                    bottom:80,
+                    opacity:1
+                },
+                animateOut:{
+                    bottom:0,
+                    opacity:0,
+                },
                 center:true,
             }
             var H5 = new H5Component(name,cfg)
             $('.iphone').append(H5);
+            var leave=true;
+            $('body').click(function(){
+                leave=!leave;
+                $('.h5_component').trigger(leave?'onLeave':'onLoad')
+            })
         })
     </script>
 </body>
