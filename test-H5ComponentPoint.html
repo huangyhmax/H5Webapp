@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/H5ComponentBase.css">
+    <script type="text/javascript" src="./js/H5ComponentBase.js"></script>
+    <!--散点图资源-->
+    <link rel="stylesheet" type="text/css" href="./css/H5ComponentPoint.css">
+    <script type="text/javascript" src="./js/H5ComponentPoint.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+        }
+        .iphone{
+            background: #fff;
+            width: 320px;
+            height: 568px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            margin: -284px 0 0 -160px;
+        }
+
+        .h5_component_base{
+            transition: all 1s;
+        }
+        /*.h5_component_Leave{
+            opacity: 0;
+        }
+        .h5_component_Load{
+            opacity: 1;
+        }*/
+    </style>
+</head>
+<body>
+    <div class="iphone">
+
+    </div>
+    <script>
+        $(function(){
+            var name="myName"
+            var cfg={
+                type:'point',
+                text:'',
+                width:300,
+                height:300,
+                data:[
+                    /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                    ['A项',.4,'green'],
+                    ['B项',.2,'yellow',0,'-60%'],
+                    ['C项',.2,'red',0,'120%']
+                    ],
+                css:{
+                    bottom:0,
+                    opacity:1,
+                },
+                animateIn:{
+                    bottom:'40%',
+                    opacity:1
+                },
+                animateOut:{
+                    bottom:0,
+                    opacity:0,
+                },
+                center:true,
+            }
+            var H5 = new H5ComponentPoint(name,cfg)
+            $('.iphone').append(H5);
+            var leave=true;
+            $('body').click(function(){
+                leave=!leave;
+                $('.h5_component').trigger(leave?'onLeave':'onLoad')
+            })
+        })
+    </script>
+</body>
+</html>
