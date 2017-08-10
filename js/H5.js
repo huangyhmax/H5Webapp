@@ -2,6 +2,7 @@
 var H5=function(){
     this.id = ('h5_'+Math.random()*100).replace('.','_');
     this.element=$('<div class="h5" id="'+this.id+'"></div>').hide();
+    this.page=[];
     $('body').append(this.element);
     /*新增一个页面*/
     /*
@@ -12,6 +13,7 @@ var H5=function(){
     */
     this.addPage = function(name,text){
         var page=$('<div class="h5_page section"></div>')
+        
         if( name != undefined){
             page.addClass('h5_page_'+name);
         }
@@ -19,14 +21,28 @@ var H5=function(){
             page.text(text)
         }
         this.element.append(page);
+        this.page.push( page )
         return this;
     }
     /*新增一个组件*/
-    /*
-   
-    */
-    this.addComponent = function(){
-
+    this.addComponent = function(name,cfg){
+        // console.log(name)
+        // console.log(cfg)
+        var cfg = cfg || {};
+        cfg = $.extend({
+            type:'base'
+        },cfg);
+        var component;  //定义一个变量，存储组件元素
+        var page = this.page.slice(-1)[0]
+        switch (cfg.type) {
+            case 'base':
+                component = new H5Component(name,cfg); //这一步实现和其他独立组件绑定
+                page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+                break;
+            default:
+                break;
+        }
+        return this;
     }
     /*初始化方法--加载图片、组件等多个资源完成后再展现*/
     this.loader = function(){

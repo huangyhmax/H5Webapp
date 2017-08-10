@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--基本资源库-->
-    <script type="text/javascript" src="./js/jquery-3.2.1.min.js" ></script>
+    
     <link rel="stylesheet" type="text/css" href="./js/jquery.fullpage.css">
+    <script type="text/javascript" src="./js/jquery-3.2.1.min.js" ></script>
     <script type="text/javascript" src="./js/jquery.fullpage.js" ></script>
     <!--内容管理组件资源-->
     <script type="text/javascript" src="./js/H5.js" ></script>
@@ -32,12 +33,37 @@
             var h5 = new H5();
             /*链式调用*/
             h5.addPage('face','首页')
-            //   .addComponent('logo',{text:'logo'})
-            //   .addComponent('slogan',{text:'slogan'})
+            /*因为addPage()是返回this，所以能够继续链式调用addComponent这个方法*/
+              .addComponent('logo',{
+                  text:'logo',
+                  width:400,
+                  height:100,
+                  css:{background:'red',top:200},
+                  center:true,
+                })
+              .addComponent('slogan',{
+                  text:'slogan',
+                  width:400,
+                  height:100,
+                  css:{background:'red',top:400},
+                  center:true,
+            })
             .addPage('desc','desc')
-                // .addComponent('caption',{text:'核心理念'})
+                .addComponent('caption',{
+                    text:'核心理念',
+                    width:400,
+                    height:100,
+                    css:{background:'red',top:200},
+                    center:true,
+            })
             .addPage('page-3','page')
-                // .addComponent('caption',{text:'课程方向分布'})
+                .addComponent('caption',{
+                    text:'课程方向分布',
+                    width:400,
+                    height:100,
+                    css:{background:'red',top:200},
+                    center:true,
+                })
             .loader()
         })
     </script>
