@@ -1,4 +1,4 @@
-/*基本图文组件交互*/
+/*基本图文组件*/
 /*构造函数*/
 var H5Component = function(name,cfg){
     var cfg= cfg || {};
