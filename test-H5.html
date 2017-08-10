@@ -45,8 +45,10 @@
                   text:'slogan',
                   width:400,
                   height:100,
-                  css:{background:'red',top:400},
+                  css:{background:'red',top:400,opacity:0},
                   center:true,
+                  animateIn:{opacity:1},
+                  animateOut:{opacity:0}
             })
             .addPage('desc','desc')
                 .addComponent('caption',{

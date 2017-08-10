@@ -3,8 +3,8 @@
 var H5Component = function(name,cfg){
     var cfg= cfg || {};
     var id=('h5_component'+Math.random()*100).replace('.','_');
-    var clsn='h5_component_name_'+name+' h5_component_'+cfg.type;
-    var component=$('<div class="h5_component '+clsn+'" id="'+id+'"></div>')
+    var clsn=' h5_component_'+cfg.type;
+    var component=$('<div class="h5_component h5_component_name_'+name+clsn+'" id="'+id+'"></div>')
     /*如果有cfg.text*/
     cfg.text   && component.text(cfg.text)
     cfg.width  && component.width(cfg.width/2)

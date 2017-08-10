@@ -47,7 +47,18 @@ var H5=function(){
     /*初始化方法--加载图片、组件等多个资源完成后再展现*/
     this.loader = function(){
         /*在此完成fullpage*/
-        this.element.fullpage();
+        this.element.fullpage({
+            onLeave: function(index, nextIndex, direction){
+                // debugger
+                $(this).find('.h5_component').trigger('onLeave')
+            },
+            //滚动结束后，页面加载完成触发的回调事件
+            afterLoad:function(anchorLink, index){
+                // debugger
+                $(this).find('.h5_component').trigger('onLoad')
+            }
+        });
+        // this.page[0].find('.h5_component').trigger('onLoad')
         this.element.show();
     }
     return this;
