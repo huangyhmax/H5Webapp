@@ -53,6 +53,37 @@ var H5ComponentPie = function(name,cfg){
         ctx.fill();
         ctx.stroke();
         sAngel=eAngel;
+
+        var text = $('<div class="text"></div>');
+        text.text(cfg.data[i][0]);
+        var per=$('<div class="per"></div>');
+        per.text(cfg.data[i][1]*100+'%');
+        text.append(per);
+
+        var x=r+Math.sin(.5*Math.PI-sAngel)*r;
+        var y=r+Math.cos(.5*Math.PI-sAngel)*r;
+
+        // text.css('left',x/2);
+        // text.css('top',y/2);
+
+        if(x>w/2){
+            text.css('left',x/2);
+        }else{
+            text.css('right',(w-x)/2);
+        }
+
+        if(y>h/2){
+            text.css('top',y/2);
+        }else{
+            text.css('bottom',(h-y)/2);
+        }
+
+        if(cfg.data[i][2]){
+            text.css('color',cfg.data[i][2])
+        }
+
+        text.css('opacity',0);
+        component.append(text);
        }
 
 
@@ -71,6 +102,12 @@ var H5ComponentPie = function(name,cfg){
         
 
     var draw = function(per){
+
+       
+        // if(per<=0){
+        //     component.find('.text').css('opacity',0);
+        // }
+
         ctx.clearRect(0,0,w,h);
 
         ctx.beginPath();
@@ -78,6 +115,7 @@ var H5ComponentPie = function(name,cfg){
         // ctx.arc(r,r,r,sAngel,sAngel+2*Math.PI*per);
         if(per<=0){
             ctx.arc(r,r,r,0,2*Math.PI);
+            component.find('.text').css('opacity',0);
             //加上true的话，就会反过来从颜色变为灰色
         }else{
             ctx.arc(r,r,r,sAngel,sAngel+2*Math.PI*per,true);
@@ -85,15 +123,18 @@ var H5ComponentPie = function(name,cfg){
         
         ctx.fill();
         ctx.stroke();
+        if(per>=1){
+            component.find('.text').css('opacity',1);            
+        }
     }
-    draw(0);
+     draw(0);
     component.on('onLoad',function(){
         //饼图生长动画
         var s=0;
         for(i=0;i<100;i++){
             setTimeout(function(){
                 s+=.01;
-                draw(s);
+                 draw(s);
             },i*10)
         }
         // [0,10,20,30,。。。]动画时间数组
@@ -104,7 +145,7 @@ var H5ComponentPie = function(name,cfg){
          for(var i=0;i<100;i++){
              setTimeout(function(){
                  s-=.01;
-                 draw(s);
+                  draw(s);
              },i*10)
          }
     })
