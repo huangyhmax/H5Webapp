@@ -36,19 +36,14 @@ var H5ComponentPie = function(name,cfg){
     var colors=['red','green','blue','gray','orange'];
     var sAngel = 1.5 * Math.PI; //设置开始的角度在12点方位
     var eAngel =0;  //结束角度
-
     var aAngel = Math.PI*2; //100%的圆结束的角度 360度
-
-    
 
     var step = cfg.data.length;
     for(var i=0;i<step;i++){
         var item = cfg.data[i];
         var color = item[2] || ( item[2]=colors.pop());
-        
         //角度的累加
         eAngel=sAngel+aAngel*item[1];
-
         ctx.beginPath();
         ctx.fillStyle=color;/*填充颜色*/
         ctx.strokeStyle=color;/*边线颜色*/
@@ -60,49 +55,56 @@ var H5ComponentPie = function(name,cfg){
         sAngel=eAngel;
        }
 
+
        //加入一个蒙板层
         var cns = document.createElement('canvas');
         var ctx = cns.getContext('2d');
         cns.width = ctx.width =w;
         cns.height = ctx.height =h;
-        $(cns).css('zIndex',0);
+        $(cns).css('zIndex',3);
         component.append(cns);
-        
-        var r=w/2;
+        // var r=w/2;
         //绘制饼图的底层
-        ctx.beginPath();
         ctx.fillStyle='#eee';/*填充颜色*/
         ctx.strokeStyle='#eee';/*边线颜色*/
         ctx.lineWidth=1;
-        ctx.arc(r,r,r,0,2*Math.PI);
-        ctx.fill();
-        ctx.stroke();
-
-
-
+        
 
     var draw = function(per){
+        ctx.clearRect(0,0,w,h);
 
+        ctx.beginPath();
+        ctx.moveTo(r,r);
+        // ctx.arc(r,r,r,sAngel,sAngel+2*Math.PI*per);
+        if(per<=0){
+            ctx.arc(r,r,r,0,2*Math.PI);
+            //加上true的话，就会反过来从颜色变为灰色
+        }else{
+            ctx.arc(r,r,r,sAngel,sAngel+2*Math.PI*per,true);
+        }
+        
+        ctx.fill();
+        ctx.stroke();
     }
     draw(0);
     component.on('onLoad',function(){
-        //折线生长动画
+        //饼图生长动画
         var s=0;
         for(i=0;i<100;i++){
             setTimeout(function(){
                 s+=.01;
-              //  draw(s);
+                draw(s);
             },i*10)
         }
         // [0,10,20,30,。。。]动画时间数组
     })
     component.on('onLeave',function(){
-         //折线消失动画
+         //饼图消失动画
          var s=1;
          for(var i=0;i<100;i++){
              setTimeout(function(){
                  s-=.01;
-                // draw(s);
+                 draw(s);
              },i*10)
          }
     })
