@@ -2,3 +2,11 @@
 .h5_component_polyline{
 
 }
+.h5_component_polyline canvas{
+    /*background: red;*/
+    position: absolute;/*因为用canvas做动画，会进行分层 ，所有要用到z-index*/
+    left: 0;
+    top: 0;
+    width: 100%; /*让画布只有等同于其父元素的大小，变为原始大小的一半，这样适用于retina的双倍分辨率高清屏*/
+    height: 100%;
+}

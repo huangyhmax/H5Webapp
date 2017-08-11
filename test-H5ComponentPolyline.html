@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./css/H5ComponentBase.css">
     <script type="text/javascript" src="./js/H5ComponentBase.js"></script>
 
-    <!--柱状图资源-->
+    <!--折线图资源-->
     <link rel="stylesheet" type="text/css" href="./css/H5ComponentPolyline.css">
     <script type="text/javascript" src="./js/H5ComponentPolyline.js"></script>
     <style>
@@ -40,7 +40,7 @@
             var name="myName"
             var cfg={
                 type:'polyline',
-                text:'',
+                text:'haha',
                 width:530,
                 height:600,
                 data:[
@@ -50,12 +50,11 @@
                     ['CSS3',.1],
                     ['HTML5',.2],
                     ['jQuery',.35],
-                    ['Bootstrap',.05],
-                    ['AngularJs',.09],
+                    
                     ],
                 css:{
                     top:100,
-                    opacity:0,
+                    // opacity:0,
                     // background:'red',
                 },
                 // animateIn:{
@@ -68,7 +67,7 @@
                 // },
                 center:true,
             }
-            var H5 = new H5ComponentBar(name,cfg)
+            var H5 = new H5ComponentPolyline(name,cfg)
             $('.iphone').append(H5);
             var leave=true;
             $('body').click(function(){
