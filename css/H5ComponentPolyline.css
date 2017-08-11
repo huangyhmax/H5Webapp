@@ -10,3 +10,12 @@
     width: 100%; /*让画布只有等同于其父元素的大小，变为原始大小的一半，这样适用于retina的双倍分辨率高清屏*/
     height: 100%;
 }
+.h5_component_polyline .text{
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    bottom: -20px;
+    height: 20px;
+    line-height: 20px;
+    transform: scale(.8); /*让字体大小比chrome的默认最小字体12px还小的显示*/
+}

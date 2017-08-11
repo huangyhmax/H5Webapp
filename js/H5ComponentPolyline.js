@@ -30,10 +30,17 @@ var H5ComponentPolyline = function(name,cfg){
     }
     //绘制垂直网格线
     step = cfg.data.length+1; //5个数据项，画7条线，取中间5份
+    var text_w=w/step >> 0;
     for(var i=0;i<step+1;i++){
         var x=(w/step)*i;
         ctx.moveTo(x,0);
         ctx.lineTo(x,h);
+        if(cfg.data[i]){
+            var text = $('<div class="text"></div>')
+            text.text(cfg.data[i][0]);
+            text.css('width',text_w).css('left',(x/2))
+            component.append(text);
+        }
     } 
     ctx.stroke(); //收笔，完成绘制；
 
@@ -52,6 +59,7 @@ var H5ComponentPolyline = function(name,cfg){
     // ctx.moveTo(10,10);
     // ctx.arc(10,10,5,0,2*Math.PI);
     // ctx.stroke();
+    //画点
     var row_x=(w/(cfg.data.length+1));
     for(i in cfg.data){
         var x=row_x*i+row_x;
@@ -60,11 +68,32 @@ var H5ComponentPolyline = function(name,cfg){
         ctx.arc(x,y,5,0,2*Math.PI);
         ctx.lineTo(x,y);
     }
+    //连线
     ctx.moveTo(row_x,h*(1-cfg.data[0][1]));
     for(i in cfg.data){
         var x=row_x*i+row_x;
         var y=h*(1-cfg.data[i][1]);
         ctx.lineTo(x,y);
+    }
+
+    ctx.stroke();
+
+    /*设置取消阴影连线的线*/
+    ctx.lineWidth =1;
+    ctx.strokeStyle = 'rgba(255,255,255,0)';
+
+
+    ctx.lineTo(x,h);
+    ctx.lineTo(row_x,h);
+    ctx.fillStyle='rgba(253,168,168,0.3)';
+    ctx.fill();
+    //写数据
+    for(i in cfg.data){
+        var x=row_x*i+row_x;
+        var y=h*(1-cfg.data[i][1]);
+        ctx.moveTo(x,y);
+        ctx.fillStyle=cfg.data[i][2]?cfg.data[i][2]:'#595959';
+        ctx.fillText((cfg.data[i][1]*100>>0)+'%',x-10,y-10)  /*>>0是去掉小数*/
     }
     ctx.stroke();
     return component;
