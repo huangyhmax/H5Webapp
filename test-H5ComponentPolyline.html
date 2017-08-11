@@ -10,8 +10,8 @@
     <script type="text/javascript" src="./js/H5ComponentBase.js"></script>
 
     <!--柱状图资源-->
-    <link rel="stylesheet" type="text/css" href="./css/H5ComponentBar.css">
-    <script type="text/javascript" src="./js/H5ComponentBar.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/H5ComponentPolyline.css">
+    <script type="text/javascript" src="./js/H5ComponentPolyline.js"></script>
     <style>
         *{
             margin: 0;
@@ -29,10 +29,6 @@
             left: 50%;
             margin: -284px 0 0 -160px;
         }
-
-        .h5_component_base{
-            transition: all 1s;
-        }
     </style>
 </head>
 <body>
@@ -43,7 +39,7 @@
         $(function(){
             var name="myName"
             var cfg={
-                type:'bar',
+                type:'polyline',
                 text:'',
                 width:530,
                 height:600,
@@ -62,14 +58,14 @@
                     opacity:0,
                     // background:'red',
                 },
-                animateIn:{
-                    top:100,
-                    opacity:1
-                },
-                animateOut:{
-                    top:200,
-                    opacity:0,
-                },
+                // animateIn:{
+                //     top:100,
+                //     opacity:1
+                // },
+                // animateOut:{
+                //     top:200,
+                //     opacity:0,
+                // },
                 center:true,
             }
             var H5 = new H5ComponentBar(name,cfg)
