@@ -58,6 +58,13 @@ var H5ComponentPolyline = function(name,cfg){
         var y=h*(1-cfg.data[i][1]);
         ctx.moveTo(x,y);
         ctx.arc(x,y,5,0,2*Math.PI);
+        ctx.lineTo(x,y);
+    }
+    ctx.moveTo(row_x,h*(1-cfg.data[0][1]));
+    for(i in cfg.data){
+        var x=row_x*i+row_x;
+        var y=h*(1-cfg.data[i][1]);
+        ctx.lineTo(x,y);
     }
     ctx.stroke();
     return component;
