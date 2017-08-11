@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="./css/H5ComponentBase.css">
     <script type="text/javascript" src="./js/H5ComponentBase.js"></script>
 
-    <!--折线图资源-->
-    <link rel="stylesheet" type="text/css" href="./css/H5ComponentPolyline.css">
-    <script type="text/javascript" src="./js/H5ComponentPolyline.js"></script>
+    <!--饼图资源-->
+    <link rel="stylesheet" type="text/css" href="./css/H5ComponentPie.css">
+    <script type="text/javascript" src="./js/H5ComponentPie.js"></script>
     <style>
         *{
             margin: 0;
@@ -39,21 +39,19 @@
         $(function(){
             var name="myName"
             var cfg={
-                type:'polyline',
+                type:'pie',
                 text:'',
                 width:540,
                 height:300,
                 data:[
                     /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
                     ['cdd',.4,'#ff7676'],
-                    ['add',.45,'#595959'],
-                    ['haha',.6,'#ff7676'],
-                    ['ggg',.5],
-                    ['fff',.35],
-                    
+                    ['add',.2,'#595959'],
+                    ['haha',.3,'#ff7676'],
+                    ['ggg',.1],
                     ],
                 css:{
-                    top:100,
+                    top:200,
                     // opacity:0,
                     // background:'red',
                 },
@@ -67,7 +65,7 @@
                 // },
                 center:true,
             }
-            var H5 = new H5ComponentPolyline(name,cfg)
+            var H5 = new H5ComponentPie(name,cfg)
             $('.iphone').append(H5);
             var leave=true;
             $('body').click(function(){

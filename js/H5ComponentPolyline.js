@@ -50,51 +50,81 @@ var H5ComponentPolyline = function(name,cfg){
     cns.width = ctx.width =w;
     cns.height = ctx.height =h;
     component.append(cns);
-    ctx.beginPath();
-    ctx.lineWidth =3;
-    ctx.strokeStyle = "#FF8878";
 
-    // var x=0;
-    // var y=0;
-    // ctx.moveTo(10,10);
-    // ctx.arc(10,10,5,0,2*Math.PI);
-    // ctx.stroke();
-    //画点
-    var row_x=(w/(cfg.data.length+1));
-    for(i in cfg.data){
-        var x=row_x*i+row_x;
-        var y=h*(1-cfg.data[i][1]);
-        ctx.moveTo(x,y);
-        ctx.arc(x,y,5,0,2*Math.PI);
-        ctx.lineTo(x,y);
+    /*draw函数，绘制折线对应的数据、阴影，由per来改动位置*/
+    var draw = function(per){
+        //每次动态加载前清空画布
+        ctx.clearRect(0,0,w,h);
+
+        ctx.beginPath();
+        ctx.lineWidth =3;
+        ctx.strokeStyle = "#FF8878";
+        // var x=0;
+        // var y=0;
+        // ctx.moveTo(10,10);
+        // ctx.arc(10,10,5,0,2*Math.PI);
+        // ctx.stroke();
+        //画点
+        var row_x=(w/(cfg.data.length+1));
+        for(i in cfg.data){
+            var x=row_x*i+row_x;
+            // var y=h*(1-cfg.data[i][1]);
+            //加入per来改动y轴上的值
+            var y=h*(1-cfg.data[i][1]*per);
+            ctx.moveTo(x,y);
+            ctx.arc(x,y,5,0,2*Math.PI);
+            ctx.lineTo(x,y);
+        }
+        //连线
+        // ctx.moveTo(row_x,h*(1-cfg.data[0][1]));
+        ctx.moveTo(row_x,h*(1-cfg.data[i][1]*per));
+        for(i in cfg.data){
+            var x=row_x*i+row_x;
+            var y=h*(1-cfg.data[i][1]*per);
+            ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+
+        /*设置取消阴影连线的线*/
+        ctx.lineWidth =1;
+        ctx.strokeStyle = 'rgba(255,255,255,0)';
+
+        ctx.lineTo(x,h);
+        ctx.lineTo(row_x,h);
+        ctx.fillStyle='rgba(253,168,168,0.3)';
+        ctx.fill();
+        //写数据
+        for(i in cfg.data){
+            var x=row_x*i+row_x;
+            var y=h*(1-cfg.data[i][1]*per);
+            ctx.moveTo(x,y);
+            ctx.fillStyle=cfg.data[i][2]?cfg.data[i][2]:'#595959';
+            ctx.fillText((cfg.data[i][1]*100>>0)+'%',x-10,y-10)  /*>>0是去掉小数*/
+        }
+        ctx.stroke();
     }
-    //连线
-    ctx.moveTo(row_x,h*(1-cfg.data[0][1]));
-    for(i in cfg.data){
-        var x=row_x*i+row_x;
-        var y=h*(1-cfg.data[i][1]);
-        ctx.lineTo(x,y);
-    }
+    draw(0);
 
-    ctx.stroke();
-
-    /*设置取消阴影连线的线*/
-    ctx.lineWidth =1;
-    ctx.strokeStyle = 'rgba(255,255,255,0)';
-
-
-    ctx.lineTo(x,h);
-    ctx.lineTo(row_x,h);
-    ctx.fillStyle='rgba(253,168,168,0.3)';
-    ctx.fill();
-    //写数据
-    for(i in cfg.data){
-        var x=row_x*i+row_x;
-        var y=h*(1-cfg.data[i][1]);
-        ctx.moveTo(x,y);
-        ctx.fillStyle=cfg.data[i][2]?cfg.data[i][2]:'#595959';
-        ctx.fillText((cfg.data[i][1]*100>>0)+'%',x-10,y-10)  /*>>0是去掉小数*/
-    }
-    ctx.stroke();
+    component.on('onLoad',function(){
+        //折线生长动画
+        var s=0;
+        for(i=0;i<100;i++){
+            setTimeout(function(){
+                s+=.01;
+                draw(s);
+            },i*10)
+        }
+        // [0,10,20,30,。。。]动画时间数组
+    })
+    component.on('onLeave',function(){
+         //折线消失动画
+         var s=1;
+         for(var i=0;i<100;i++){
+             setTimeout(function(){
+                 s-=.01;
+                 draw(s);
+             },i*10)
+         }
+    })
     return component;
 }
