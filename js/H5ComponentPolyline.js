@@ -14,7 +14,7 @@ var H5ComponentPolyline = function(name,cfg){
     var ctx = cns.getContext('2d');
     cns.width = ctx.width =w;
     cns.height = ctx.height =h;
-
+    component.append(cns);
     //绘制水平网格线 
     var step = 10;
     ctx.beginPath();
@@ -37,9 +37,28 @@ var H5ComponentPolyline = function(name,cfg){
     } 
     ctx.stroke(); //收笔，完成绘制；
 
-    //绘制折线数据
-    
-
+    //绘制折线数据，重建一个画布图层
+    var cns = document.createElement('canvas');
+    var ctx = cns.getContext('2d');
+    cns.width = ctx.width =w;
+    cns.height = ctx.height =h;
     component.append(cns);
+    ctx.beginPath();
+    ctx.lineWidth =3;
+    ctx.strokeStyle = "#FF8878";
+
+    // var x=0;
+    // var y=0;
+    // ctx.moveTo(10,10);
+    // ctx.arc(10,10,5,0,2*Math.PI);
+    // ctx.stroke();
+    var row_x=(w/(cfg.data.length+1));
+    for(i in cfg.data){
+        var x=row_x*i+row_x;
+        var y=h*(1-cfg.data[i][1]);
+        ctx.moveTo(x,y);
+        ctx.arc(x,y,5,0,2*Math.PI);
+    }
+    ctx.stroke();
     return component;
 }
