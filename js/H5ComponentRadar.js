@@ -4,8 +4,7 @@
 */
 var H5ComponentRadar = function(name,cfg){
     var component = new H5Component( name,cfg);
-    
-    //绘制网格线
+
     var w=cfg.width;
     var h=cfg.height;
 
@@ -73,8 +72,11 @@ var H5ComponentRadar = function(name,cfg){
     
     //实现扇骨线的线的连接
     ctx.strokeStyle="#f00";//定义扇骨线的颜色
+
     var draw = function(per){
+        //每次动态加载前清空画布
         ctx.clearRect(0,0,w,h);
+
         for(var i=0;i<step;i++){
             var rad=(2*Math.PI / 360)*(360/step)*i
             var rate = cfg.data[i][1] *per;
@@ -102,6 +104,27 @@ var H5ComponentRadar = function(name,cfg){
         ctx.closePath();
         ctx.stroke();
     }
-    draw(1);
+    draw(0);
+    component.on('onLoad',function(){
+        //折线生长动画
+        var s=0;
+        for(i=0;i<100;i++){
+            setTimeout(function(){
+                s+=.01;
+                draw(s);
+            },i*10)
+        }
+        // [0,10,20,30,。。。]动画时间数组
+    })
+    component.on('onLeave',function(){
+         //折线消失动画
+         var s=1;
+         for(var i=0;i<100;i++){
+             setTimeout(function(){
+                 s-=.01;
+                 draw(s);
+             },i*10)
+         }
+    })
     return component;
 }
