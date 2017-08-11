@@ -49,7 +49,6 @@ var H5ComponentRadar = function(name,cfg){
         ctx.fillStyle=(isBlue = !isBlue)?'#99c0ff':'#f1f9ff';
         ctx.closePath();
         ctx.fill();
-        ctx.stroke();
     }
     //绘制伞骨图
     for( var i=0; i<step;i++){
@@ -59,9 +58,38 @@ var H5ComponentRadar = function(name,cfg){
         // ctx.arc(x,y,5,0,2*Math.PI)
         ctx.moveTo(r,r);
         ctx.lineTo(x,y);
-        ctx.strokeStyle="#fff";
-        ctx.stroke();
+
+        //输出项目文字
+        var text = $('<div class="text"></div>')
+        text.text(cfg.data[i][0]);
+        // text.css('left',x/2);
+        // text.css('top',y/2);
+
+        //每一个项目名都相对它的上一个项目名再增加0.8秒后再显示
+        text.css('transition','all .8s'+i*.1+'s');
+
+
+        if(x>w/2){
+            text.css('left',x/2+5);
+        }else{
+            text.css('right',(w-x)/2+5);
+        }
+
+        if(y>h/2){
+            text.css('top',y/2+5);
+        }else{
+            text.css('bottom',(h-y)/2+5);
+        }
+
+        if(cfg.data[i][2]){
+            text.css('color',cfg.data[i][2]);
+        }
+        text.css('opacity',0);
+        component.append(text);
+
     }
+    ctx.strokeStyle="#fff";
+    ctx.stroke();
 
     //数据层的开发，新建新的画布
     var cns = document.createElement('canvas');
@@ -74,6 +102,13 @@ var H5ComponentRadar = function(name,cfg){
     ctx.strokeStyle="#f00";//定义扇骨线的颜色
 
     var draw = function(per){
+        
+        if(per>=1){
+            component.find('.text').css('opacity',1);
+        }
+        if(per<=1){
+            component.find('.text').css('opacity',0);
+        }
         //每次动态加载前清空画布
         ctx.clearRect(0,0,w,h);
 
@@ -83,6 +118,8 @@ var H5ComponentRadar = function(name,cfg){
             var x=r+Math.sin(rad)*r*rate;
             var y=r+Math.cos(rad)*r*rate; 
             ctx.lineTo(x,y);
+            
+            
         }
         ctx.closePath();
         ctx.stroke();
