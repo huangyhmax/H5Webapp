@@ -19,13 +19,17 @@ var H5Component = function(name,cfg){
     }
     /*让基本图文组件绑定onLoad和onLeave事件*/
     component.on('onLoad',function(){
-        $(this).addClass(clsn+' h5_component_Load').removeClass(' h5_component_Leave');
-        cfg.animateIn && $(this).animate(cfg.animateIn);
+        setTimeout(function() {
+            component.addClass(clsn+' h5_component_Load').removeClass(' h5_component_Leave');
+            cfg.animateIn && component.animate(cfg.animateIn);
+        }, cfg.delay||0);
         return false; //避免在page的调用触发中，陷入无限死循环
     })
     component.on('onLeave',function(){
-        $(this).addClass(clsn+' h5_component_Leave').removeClass(' h5_component_Load');
-        cfg.animateOut && $(this).animate(cfg.animateOut);
+        setTimeout(function() {
+            component.addClass(clsn+' h5_component_Leave').removeClass(' h5_component_Load');
+            cfg.animateOut && component.animate(cfg.animateOut);
+        }, cfg.delay||0);
         return false;
     })
     return component;
