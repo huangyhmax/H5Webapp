@@ -56,10 +56,33 @@
             font-size: 20px;
             color: #fff;
         }
+        .h5_component_name_back{
+            -webkit-animation: back 2s infinite 2s;
+        }
+        @-webkit-keyframes back{
+            50%{top:20px;} /*默认0%和100%就是top:30px*/
+        }
     </style>
     <script>
         $(function(){
             var indexpage=new H5();
+            indexpage.whenAddPage=function(){
+                this.addComponent('slide_up',{
+                    bg:'../img/footer.png',
+                    css:{
+                        opacity:0,
+                        left:0,bottom:-20,
+                        width:'100%',height:'20px',zIndex:999
+                    },
+                    animateIn:{
+                        opacity:1,bottom:'-1px'
+                    },
+                    animateOut:{
+                        opacity:0,bottom:'-20px'
+                    },
+                    delay:500
+                })
+            }
             /*因为addPage()是返回this，所以能够继续链式调用addComponent这个方法*/
             indexpage.addPage('face')
                 .addComponent('logo',{
@@ -140,12 +163,12 @@
                         wordWrap: 'break-word',
                         top:240,
                     },
-                    text:'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+                    text:'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
                     animateIn:{opacity:1,top:190},
                     animateOut:{opacity:0,top:180},
                     delay:400
                 })
-                .addComponent('peopel',{
+                .addComponent('people',{
                     center:true,
                     width:515,
                     height:305,
@@ -160,9 +183,55 @@
                 })
             .addPage('tail')
                 .addComponent('logo',{
-                    
+                    center:true,
+                    width:359,
+                    height:129,
+                    bg:'../img/tail_logo.png',
+                    css:{
+                        opacity:0,
+                        top:240,
+                    },
+                    animateIn:{opacity:1,top:210},
+                    animateOut:{opacity:0,top:240},
                 })
-                .loader(2);
+                .addComponent('slogan',{
+                    center:true,
+                    width:314,
+                    height:446,
+                    bg:'../img/tail_slogan.png',
+                    css:{
+                        opacity:0,
+                        top:280,
+                        
+                    },
+                    animateIn:{opacity:1,left:'50%'},
+                    animateOut:{opacity:0,left:'0%'},
+                    delay:1200
+                })
+                .addComponent('share',{
+                    width:128,
+                    height:120,
+                    bg:'../img/tail_share.png',
+                    css:{
+                        opacity:0,
+                        top:240,
+                        right:110
+                    },
+                    animateIn:{opacity:1,top:10,right:10},
+                    animateOut:{opacity:0,top:110,right:110},
+                    delay:1000
+                })
+                .addComponent('back',{
+                    width:52,
+                    height:50,
+                    bg:'../img/tail_back.png',
+                    top:25,
+                    center:true,
+                    onclick:function(){
+                        $.fn.fullpage.moveTo(1);
+                    }
+                })
+                .loader(3);
             })
     </script>
     <title>调查报告</title>

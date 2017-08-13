@@ -21,7 +21,13 @@ var H5=function(){
             page.text(text)
         }
         this.element.append(page);
-        this.page.push( page )
+        this.page.push( page );
+        /*
+        将每新增一页，就会执行的动作抽离出来，放到addpage()方法里来统一触发：
+        */
+        if( typeof this.whenAddPage === 'function'){
+            this.whenAddPage();
+        }
         return this;
     }
     /*新增一个组件*/

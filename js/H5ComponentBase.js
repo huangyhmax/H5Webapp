@@ -17,6 +17,10 @@ var H5Component = function(name,cfg){
             left:'50%'      
         })
     }
+
+    if (typeof cfg.onclick === 'function'){
+        component.on('click',cfg.onclick)
+    }
     /*让基本图文组件绑定onLoad和onLeave事件*/
     component.on('onLoad',function(){
         setTimeout(function() {
