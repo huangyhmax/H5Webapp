@@ -119,7 +119,7 @@ var H5ComponentRadar = function(name,cfg){
             var y=r+Math.cos(rad)*r*rate; 
             ctx.lineTo(x,y);
             
-            
+    
         }
         ctx.closePath();
         ctx.stroke();

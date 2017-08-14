@@ -181,6 +181,417 @@
                     animateOut:{opacity:0,bottom:0},
                     delay:800
                 })
+            .addPage()
+                .addComponent('caption',{text:'折线图'})
+                .addComponent('polyline',{
+                    type:'polyline',
+                    text:'',
+                    width:540,
+                    height:300,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',.6,'#ff7676'],
+                        ['add',.25,'#595959'],
+                        ['haha',.5,'#ff7676'],
+                        ['ggg',.65]
+                        ],
+                    css:{
+                        top:280,
+                        opacity:0,
+                    },
+                    animateIn:{
+                        top:250,
+                        opacity:1
+                    },
+                    animateOut:{
+                        top:280,
+                        opacity:0,
+                    },
+                    center:true,
+                })
+                .addComponent('msg',{
+                    text:'XXXXXXX',
+                    css:{
+                        opacity:0,
+                        top:160,
+                        textAlign:'center',
+                        width:'100%',
+                        color:'#ff7676',
+                        fontSize:'22px'
+                    },
+                    animateIn:{opacity:1},
+                    animateOut:{opacity:0},
+                })
+            .addPage()
+                .addComponent('caption',{text:'水平柱图'})
+                .addComponent('bar',{
+                    type:'bar',
+                    text:'',
+                    width:530,
+                    height:600,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['Javascript',.4,'#ff7676'],
+                        ['HTML/CSS',.2],
+                        ['CSS3',.1],
+                        ['HTML5',.2],
+                        ['jQuery',.35],
+                        ['Bootstrap',.05],
+                        ['AngularJs',.09],
+                        ],
+                    css:{
+                        top:100,
+                        opacity:0,
+                        // background:'red',
+                    },
+                    animateIn:{
+                        top:250,
+                        opacity:1
+                    },
+                    animateOut:{
+                        top:200,
+                        opacity:0,
+                    },
+                    center:true,
+                })
+                .addComponent('msg',{
+                    text:'XXXXXXX',
+                    css:{
+                        opacity:0,
+                        bottom:120,
+                        textAlign:'center',
+                        width:'100%',
+                        color:'#ff7676',
+                        fontSize:'22px'
+                    },
+                    animateIn:{opacity:1},
+                    animateOut:{opacity:0},
+                })
+            // .addPage()
+            //     .addComponent('caption',{text:'垂直柱图'})
+            //     .addComponent('bar_v',{
+            //         type : 'bar_v',
+            //         width : 530,
+            //         height : 400,
+            //         data:[
+            //             ['Js' , .4,'#ff7676'],
+            //             ['CSS3' , .1],
+            //             ['HTML5' , .2],
+            //             ['PHP' , .05],
+            //             ['jQuery' , .35]
+            //         ],
+            //         css : {
+            //             top:100,
+            //             opacity:0
+            //         },
+            //         animateIn:{
+            //             opacity:1,
+            //             top:200,
+            //         },
+            //         animateOut:{
+            //             opacity:0,
+            //             top:100,
+            //         },
+            //         center : true,
+            //     })
+            //     .addComponent('msg',{
+            //         text:'XXXXXXX',
+            //         css:{
+            //             opacity:0,
+            //             top:120,
+            //             textAlign:'center',
+            //             width:'100%',
+            //             color:'#ff7676',
+            //             fontSize:'22px'
+            //         },
+            //         animateIn:{opacity:1},
+            //         animateOut:{opacity:0},
+            //     })
+            .addPage()
+                .addComponent('caption',{text:'雷达图'})
+                .addComponent('radar',{
+                    type:'Radar',
+                    text:'',
+                    width:400,
+                    height:400,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',.5,'#ff7676'],
+                        ['add',.45,'#595959'],
+                        ['haha',.35,'#ff7676'],
+                        ['ggg',.35],
+                        ['fff',.65],
+                        ],
+                    css:{
+                        top:200,
+                        opacity:0,
+                        // background:'red',
+                    },
+                    animateIn:{
+                        top:250,
+                        opacity:1
+                    },
+                    animateOut:{
+                        top:200,
+                        opacity:0,
+                    },
+                    center:true,
+                })
+                .addComponent('msg',{
+                    text:'XXXXXXX',
+                    css:{
+                        opacity:0,
+                        top:120,
+                        textAlign:'center',
+                        width:'100%',
+                        color:'#ff7676',
+                        fontSize:'22px'
+                    },
+                    animateIn:{opacity:1},
+                    animateOut:{opacity:0},
+                })
+            .addPage()
+                .addComponent('caption',{text:'饼图'})
+                .addComponent('pie',{
+                    type:'pie',
+                    text:'',
+                    width:400,
+                    height:400,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',.25,'#ff7676'],
+                        ['add',.15,'#595959'],
+                        ['haha',.2,'#ff7676'],
+                        ['ggg',.05],
+                        ['rgrg',.35],
+                        ],
+                    css:{
+                        top:200,
+                        opacity:0,
+                        // background:'red',
+                    },
+                    animateIn:{
+                        top:250,
+                        opacity:1
+                    },
+                    animateOut:{
+                        top:200,
+                        opacity:0,
+                    },
+                    center:true,
+                })
+                .addComponent('msg',{
+                    text:'XXXXXXX',
+                    css:{
+                        opacity:0,
+                        top:120,
+                        textAlign:'center',
+                        width:'100%',
+                        color:'#ff7676',
+                        fontSize:'22px'
+                    },
+                    animateIn:{opacity:1},
+                    animateOut:{opacity:0},
+                })
+            .addPage()
+                .addComponent('caption',{text:'环图'})
+                .addComponent('ring',{
+                    type:'ring',
+                    text:'',
+                    width:400,
+                    height:400,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',1,'#ff7676'],
+                        ],
+                    css:{
+                        top:200,
+                        opacity:0,
+                        fontSize:'50px',
+                    },
+                    animateIn:{
+                        top:130,
+                        opacity:1,
+                        fontSize:'25px',
+                    },
+                    animateOut:{
+                        top:200,
+                        opacity:0,
+                    },
+                    center:true,
+                })
+                .addComponent('msg',{
+                    text:'XXXXXXX',
+                    css:{
+                        opacity:0,
+                        top:350,
+                        textAlign:'center',
+                        width:'100%',
+                        color:'#ff7676',
+                        fontSize:'25px'
+                    },
+                    animateIn:{opacity:1},
+                    animateOut:{opacity:0},
+                    delay:1000
+                })
+                .addComponent('ring-1',{
+                    type:'ring',
+                    text:'',
+                    width:140,
+                    height:140,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',1,'darkorange'],
+                        ],
+                    css:{
+                       left:80,
+                       bottom:180,
+                        opacity:0,
+                        // background:'red',
+                    },
+                    animateIn:{
+                       left:80,
+                       bottom:180,
+                        opacity:1
+                    },
+                    animateOut:{
+                       left:80,
+                       bottom:180,
+                        opacity:0,
+                    },
+                    center:true,
+                })
+                .addComponent('ring-2',{
+                    type:'ring',
+                    text:'',
+                    width:140,
+                    height:140,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',1,'darkorange'],
+                        ],
+                    css:{
+                       left:150,
+                       bottom:180,
+                        opacity:0,
+                        // background:'red',
+                    },
+                    animateIn:{
+                       left:150,
+                       bottom:180,
+                        opacity:1
+                    },
+                    animateOut:{
+                       left:150,
+                       bottom:180,
+                        opacity:0,
+                    },
+                })
+                .addComponent('ring-3',{
+                    type:'ring',
+                    text:'',
+                    width:140,
+                    height:140,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',1,'darkorange'],
+                        ],
+                    css:{
+                       right:50,
+                       bottom:180,
+                        opacity:0,
+                        // background:'red',
+                    },
+                    animateIn:{
+                       right:50,
+                       bottom:180,
+                        opacity:1
+                    },
+                    animateOut:{
+                       right:50,
+                      bottom:180,
+                        opacity:0,
+                    },
+                })
+                .addComponent('ring-4',{
+                    type:'ring',
+                    text:'',
+                    width:140,
+                    height:140,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',1,'darkorange'],
+                        ],
+                    css:{
+                        left:90,
+                        bottom:80,
+                        opacity:0,
+                        // background:'red',
+                    },
+                    animateIn:{
+                        left:90,
+                        bottom:80,
+                        opacity:1
+                    },
+                    animateOut:{
+                        left:90,
+                        bottom:80,
+                        opacity:0,
+                    },
+                })
+                .addComponent('ring-5',{
+                    type:'ring',
+                    text:'',
+                    width:140,
+                    height:140,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['cdd',1,'darkorange'],
+                        ],
+                    css:{
+                        right:90,
+                        bottom:80,
+                        opacity:0,
+                        // background:'red',
+                    },
+                    animateIn:{
+                        right:90,
+                        bottom:80,
+                        opacity:1
+                    },
+                    animateOut:{
+                        right:90,
+                        bottom:80,
+                        opacity:0,
+                    },
+                })
+            .addPage()
+                .addComponent('caption',{text:'散点图'})
+                .addComponent('point',{
+                    type:'point',
+                    text:'',
+                    width:300,
+                    height:300,
+                    data:[
+                        /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
+                        ['A项',.4,'#ff7676'],
+                        ['B项',.2,'#ffa3a4',0,'-60%'],
+                        ['C项',.2,'#99c1ff',0,'120%']
+                        ],
+                    css:{
+                        bottom:0,
+                        opacity:1,
+                    },
+                    animateIn:{
+                        bottom:'40%',
+                        opacity:1
+                    },
+                    animateOut:{
+                        bottom:0,
+                        opacity:0,
+                    },
+                    center:true,
+                })
             .addPage('tail')
                 .addComponent('logo',{
                     center:true,
@@ -231,7 +642,7 @@
                         $.fn.fullpage.moveTo(1);
                     }
                 })
-                .loader(3);
+                .loader(9);
             })
     </script>
     <title>调查报告</title>

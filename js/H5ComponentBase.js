@@ -17,7 +17,7 @@ var H5Component = function(name,cfg){
             left:'50%'      
         })
     }
-
+    
     if (typeof cfg.onclick === 'function'){
         component.on('click',cfg.onclick)
     }

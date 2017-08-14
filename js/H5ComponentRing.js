@@ -3,10 +3,10 @@
 var H5ComponentRing =function ( name, cfg ) {
 
 
-  if(cfg.data.length>1){  //  环图应该只有一个数据
-    // 任务二：(1) 把数据格式化为只有一项，例如 a = [ [1] , [2] , [3] ] 格式化为： a=[ [1] ]
-    cfg.data = [cfg.data[0]];
-  }
+  // if(cfg.data.length>1){  //  环图应该只有一个数据
+  //   // 任务二：(1) 把数据格式化为只有一项，例如 a = [ [1] , [2] , [3] ] 格式化为： a=[ [1] ]
+  //   cfg.data = [cfg.data[0]];
+  // }
 
   //  任务二：(2) 重设配置中的 type 参数，不仅利用 H5ComponentPie 构建 DOM 结构和 JS 逻辑，也使用其 CSS 样式定义（思考下为什么能达到这个效果）
   cfg.type = 'pie';

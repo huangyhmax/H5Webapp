@@ -45,6 +45,38 @@ var H5=function(){
                 component = new H5Component(name,cfg); //这一步实现和其他独立组件绑定
                 page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
                 break;
+            case 'polyline':
+                component = new H5ComponentPolyline(name,cfg); //这一步实现和其他独立组件绑定
+                page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+                break;
+             case 'pie':
+                component = new H5ComponentPie(name,cfg); //这一步实现和其他独立组件绑定
+                page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+                break;
+            case 'bar':
+                component = new H5ComponentBar(name,cfg); //这一步实现和其他独立组件绑定
+                page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+                break;
+            // case 'bar_v':
+            //     component = new H5ComponentBar_v(name,cfg); //这一步实现和其他独立组件绑定
+            //     page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+            //     break;
+            case 'Radar':
+                component = new H5ComponentRadar(name,cfg); //这一步实现和其他独立组件绑定
+                page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+                break;
+            case 'pie':
+                component = new H5ComponentPie(name,cfg); //这一步实现和其他独立组件绑定
+                page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+                break;
+            case 'ring':
+                component = new H5ComponentRing(name,cfg); //这一步实现和其他独立组件绑定
+                page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+                break;
+            case 'point':
+                component = new H5ComponentPoint(name,cfg); //这一步实现和其他独立组件绑定
+                page.append(component); //this.page=[],this.page.push(page),到这一步，贯穿然后实现将独立组件放到页面中来。
+                break;
             default:
                 break;
         }
