@@ -8,7 +8,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 90;
+    z-index: 4;
     /* 任务三：修正遮罩层的样式，为其添加白色背景颜色，并且设置为完成 圆形饼图的 80% 大小 */
     background-color: #fff;
     border-radius: 50%;
@@ -19,6 +19,7 @@
     width: 100%;
     top: 40%;
     opacity: 0;
+    font-size:25px,
 }
 .h5_component_ring .text .per{
 }

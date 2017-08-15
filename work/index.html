@@ -68,7 +68,7 @@
             var indexpage=new H5();
             indexpage.whenAddPage=function(){
                 this.addComponent('slide_up',{
-                    bg:'../img/footer.png',
+                    bg:'../img/footer.jpg',
                     css:{
                         opacity:0,
                         left:0,bottom:-20,
@@ -136,13 +136,13 @@
                 })
             .addPage('')
                 .addComponent('caption',{
-                    text:'核心理念',
+                    text:'基本介绍',
                 })
                 .addComponent('text',{
                     width:500,
                     height:30,
                     center:true,
-                    text:'XXXX',
+                    text:'微博使用统计',
                     css:{
                         opacity:0,textAlign:'center',color:'red',fontSize:'26px',top:'240px'
                     },
@@ -163,7 +163,7 @@
                         wordWrap: 'break-word',
                         top:240,
                     },
-                    text:'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+                    text:'微博作为中国最大的社交网络平台，用户数量庞大。以微博为主题，对微博应用的各方面使用情况进行统计汇总，并将统计数据加以图表展示。（以下展示数据，仅为展示作用，不具备任何参考价值）',
                     animateIn:{opacity:1,top:190},
                     animateOut:{opacity:0,top:180},
                     delay:400
@@ -182,7 +182,7 @@
                     delay:800
                 })
             .addPage()
-                .addComponent('caption',{text:'折线图'})
+                .addComponent('caption',{text:'使用途径'})
                 .addComponent('polyline',{
                     type:'polyline',
                     text:'',
@@ -190,10 +190,10 @@
                     height:300,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',.6,'#ff7676'],
-                        ['add',.25,'#595959'],
-                        ['haha',.5,'#ff7676'],
-                        ['ggg',.65]
+                        ['手机微博APP',.6,'#ff7676'],
+                        ['网页版微博',.25,'#595959'],
+                        ['第三方浏览',.15,'#ff7676'],
+                        ['海外版APP',.25]
                         ],
                     css:{
                         top:280,
@@ -210,7 +210,7 @@
                     center:true,
                 })
                 .addComponent('msg',{
-                    text:'XXXXXXX',
+                    text:'微博登录方式',
                     css:{
                         opacity:0,
                         top:160,
@@ -223,7 +223,7 @@
                     animateOut:{opacity:0},
                 })
             .addPage()
-                .addComponent('caption',{text:'水平柱图'})
+                .addComponent('caption',{text:'用户群体'})
                 .addComponent('bar',{
                     type:'bar',
                     text:'',
@@ -231,13 +231,13 @@
                     height:600,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['Javascript',.4,'#ff7676'],
-                        ['HTML/CSS',.2],
-                        ['CSS3',.1],
-                        ['HTML5',.2],
-                        ['jQuery',.35],
-                        ['Bootstrap',.05],
-                        ['AngularJs',.09],
+                        ['10岁以下',.1,'#ff7676'],
+                        ['10岁-15岁',.23],
+                        ['16岁-25岁',.44,'#ff7676'],
+                        ['26岁-35岁',.31],
+                        ['36岁-45岁',.12,'#ff7676'],
+                        ['46岁-55岁',.4],
+                        ['55岁以上',.2,'#ff7676'],
                         ],
                     css:{
                         top:100,
@@ -255,7 +255,7 @@
                     center:true,
                 })
                 .addComponent('msg',{
-                    text:'XXXXXXX',
+                    text:'用户群体的年龄分段',
                     css:{
                         opacity:0,
                         bottom:120,
@@ -267,48 +267,8 @@
                     animateIn:{opacity:1},
                     animateOut:{opacity:0},
                 })
-            // .addPage()
-            //     .addComponent('caption',{text:'垂直柱图'})
-            //     .addComponent('bar_v',{
-            //         type : 'bar_v',
-            //         width : 530,
-            //         height : 400,
-            //         data:[
-            //             ['Js' , .4,'#ff7676'],
-            //             ['CSS3' , .1],
-            //             ['HTML5' , .2],
-            //             ['PHP' , .05],
-            //             ['jQuery' , .35]
-            //         ],
-            //         css : {
-            //             top:100,
-            //             opacity:0
-            //         },
-            //         animateIn:{
-            //             opacity:1,
-            //             top:200,
-            //         },
-            //         animateOut:{
-            //             opacity:0,
-            //             top:100,
-            //         },
-            //         center : true,
-            //     })
-            //     .addComponent('msg',{
-            //         text:'XXXXXXX',
-            //         css:{
-            //             opacity:0,
-            //             top:120,
-            //             textAlign:'center',
-            //             width:'100%',
-            //             color:'#ff7676',
-            //             fontSize:'22px'
-            //         },
-            //         animateIn:{opacity:1},
-            //         animateOut:{opacity:0},
-            //     })
             .addPage()
-                .addComponent('caption',{text:'雷达图'})
+                .addComponent('caption',{text:'用户关注话题'})
                 .addComponent('radar',{
                     type:'Radar',
                     text:'',
@@ -316,11 +276,11 @@
                     height:400,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',.5,'#ff7676'],
-                        ['add',.45,'#595959'],
-                        ['haha',.35,'#ff7676'],
-                        ['ggg',.35],
-                        ['fff',.65],
+                        ['热点',.5,'#ff7676'],
+                        ['娱乐',.45,'#595959'],
+                        ['段子',.35,'#ff7676'],
+                        ['萌宠',.35],
+                        ['美食',.65],
                         ],
                     css:{
                         top:200,
@@ -338,10 +298,10 @@
                     center:true,
                 })
                 .addComponent('msg',{
-                    text:'XXXXXXX',
+                    text:'热门榜常驻话题分类',
                     css:{
                         opacity:0,
-                        top:120,
+                        top:160,
                         textAlign:'center',
                         width:'100%',
                         color:'#ff7676',
@@ -351,7 +311,7 @@
                     animateOut:{opacity:0},
                 })
             .addPage()
-                .addComponent('caption',{text:'饼图'})
+                .addComponent('caption',{text:'用户分布地区'})
                 .addComponent('pie',{
                     type:'pie',
                     text:'',
@@ -359,11 +319,11 @@
                     height:400,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',.25,'#ff7676'],
-                        ['add',.15,'#595959'],
-                        ['haha',.2,'#ff7676'],
-                        ['ggg',.05],
-                        ['rgrg',.35],
+                        ['粤',.25,'#ff7676'],
+                        ['沪',.15,'#595959'],
+                        ['京',.2,'#ff7676'],
+                        ['苏',.05],
+                        ['闽',.35],
                         ],
                     css:{
                         top:200,
@@ -381,7 +341,7 @@
                     center:true,
                 })
                 .addComponent('msg',{
-                    text:'XXXXXXX',
+                    text:'用户分布最多的省份',
                     css:{
                         opacity:0,
                         top:120,
@@ -394,7 +354,7 @@
                     animateOut:{opacity:0},
                 })
             .addPage()
-                .addComponent('caption',{text:'环图'})
+                .addComponent('caption',{text:'用户活跃度'})
                 .addComponent('ring',{
                     type:'ring',
                     text:'',
@@ -402,7 +362,7 @@
                     height:400,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',1,'#ff7676'],
+                        ['登录数',.85,'#ff7676'],
                         ],
                     css:{
                         top:200,
@@ -421,7 +381,7 @@
                     center:true,
                 })
                 .addComponent('msg',{
-                    text:'XXXXXXX',
+                    text:'用户行为活跃度分析',
                     css:{
                         opacity:0,
                         top:350,
@@ -441,7 +401,7 @@
                     height:140,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',1,'darkorange'],
+                        ['回复',.42,'darkorange'],
                         ],
                     css:{
                        left:80,
@@ -468,7 +428,7 @@
                     height:140,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',1,'darkorange'],
+                        ['点赞',.36,'darkorange'],
                         ],
                     css:{
                        left:150,
@@ -494,7 +454,7 @@
                     height:140,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',1,'darkorange'],
+                        ['转发',.65,'darkorange'],
                         ],
                     css:{
                        right:50,
@@ -520,7 +480,7 @@
                     height:140,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',1,'darkorange'],
+                        ['举报',.12,'darkorange'],
                         ],
                     css:{
                         left:90,
@@ -546,7 +506,7 @@
                     height:140,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['cdd',1,'darkorange'],
+                        ['原创',.22,'darkorange'],
                         ],
                     css:{
                         right:90,
@@ -566,7 +526,7 @@
                     },
                 })
             .addPage()
-                .addComponent('caption',{text:'散点图'})
+                .addComponent('caption',{text:'用户学历分布'})
                 .addComponent('point',{
                     type:'point',
                     text:'',
@@ -574,9 +534,9 @@
                     height:300,
                     data:[
                         /*数据项名称、数据项数量、标记颜色、x轴方向、Y轴方向*/
-                        ['A项',.4,'#ff7676'],
-                        ['B项',.2,'#ffa3a4',0,'-60%'],
-                        ['C项',.2,'#99c1ff',0,'120%']
+                        ['本科及以上',.4,'#ff7676'],
+                        ['大专',.2,'#ffa3a4',0,'-60%'],
+                        ['高中及以下',.3,'#99c1ff',0,'120%']
                         ],
                     css:{
                         bottom:0,
@@ -642,7 +602,7 @@
                         $.fn.fullpage.moveTo(1);
                     }
                 })
-                .loader(9);
+                .loader(0);
             })
     </script>
     <title>调查报告</title>

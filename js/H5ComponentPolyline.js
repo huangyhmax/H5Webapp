@@ -99,6 +99,7 @@ var H5ComponentPolyline = function(name,cfg){
             var y=h*(1-cfg.data[i][1]*per);
             ctx.moveTo(x,y);
             ctx.fillStyle=cfg.data[i][2]?cfg.data[i][2]:'#595959';
+            ctx.fillStyle='10px'
             ctx.fillText((cfg.data[i][1]*100>>0)+'%',x-10,y-10)  /*>>0是去掉小数*/
         }
         ctx.stroke();

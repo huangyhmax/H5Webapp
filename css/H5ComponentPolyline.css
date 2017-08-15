@@ -18,4 +18,5 @@
     height: 20px;
     line-height: 20px;
     transform: scale(.8); /*让字体大小比chrome的默认最小字体12px还小的显示*/
+    color: #636161;
 }
