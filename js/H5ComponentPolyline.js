@@ -19,7 +19,7 @@ var H5ComponentPolyline = function(name,cfg){
     var step = 10;
     ctx.beginPath();
     ctx.lineWidth =1;
-    ctx.strokeStyle = "#000";
+    ctx.strokeStyle = "#988f8f";
 
     window.ctx = ctx;
 
@@ -99,7 +99,7 @@ var H5ComponentPolyline = function(name,cfg){
             var y=h*(1-cfg.data[i][1]*per);
             ctx.moveTo(x,y);
             ctx.fillStyle=cfg.data[i][2]?cfg.data[i][2]:'#595959';
-            ctx.fillStyle='10px'
+            ctx.font = "20px serif";/*使用这个属性进行设置canvas字体的大小*/
             ctx.fillText((cfg.data[i][1]*100>>0)+'%',x-10,y-10)  /*>>0是去掉小数*/
         }
         ctx.stroke();
