@@ -86,9 +86,9 @@ var H5=function(){
     this.loader = function(firstPage){
         /*在此完成fullpage*/
         this.element.fullpage({
-            navigation: true,
-            navigationPosition: 'right',
-            navigationTooltips: ['1', '2', '3'],
+            // navigation: true,
+            // navigationPosition: 'right',
+            // navigationTooltips: ['1', '2', '3'],
             onLeave: function(index, nextIndex, direction){
                 // debugger
                 $(this).find('.h5_component').trigger('onLeave')
